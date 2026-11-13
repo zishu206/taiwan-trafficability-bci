@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Large / restricted data (never commit)
+*.tif
+*.tiff
+*.npy
+*.shp
+*.dbf
+*.shx
+*.prj
+*.csv
+data/raw/
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

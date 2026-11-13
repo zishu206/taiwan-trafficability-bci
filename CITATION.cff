@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the following paper."
+title: "Multi-Source Normalized Remote-Sensing Indicators and the Analytic Hierarchy Process for Evaluating Vehicle Trafficability and Bearing Capacity on the Western Coastal Plain of Taiwan, China"
+type: software
+authors:
+  - family-names: Wu
+    given-names: Shanrui
+  - family-names: Cheng
+    given-names: Zijian
+  - family-names: Rao
+    given-names: Jianrong
+  - family-names: Wang
+    given-names: Yi
+  - family-names: Shi
+    given-names: Yue
+  - family-names: Wang
+    given-names: Daqing
+version: 1.0.0
+date-released: 2026-11-13
+license: MIT
+repository-code: "https://github.com/[your-username]/taiwan-trafficability-bci"
+# doi: "10.XXXX/XXXX — add after journal publication"
