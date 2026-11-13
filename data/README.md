@@ -13,7 +13,7 @@ repository because it exceeds GitHub's 100 MB per-file limit.
 - Band order: NLI, NBD, NCLAY, NSAL, NAI, NSI, NCUR, NDW, NWDI, NSAR, NLST, NVFI, NLULC.
 - All values are in 0–1; larger values indicate higher bearing capacity.
 - SHA-256 checksum: `3538AFC00224A03E45166132CD9CF45D837ACC5796873938246EF07858F18655`
-- Zenodo DOI: `[10.5281/zenodo.XXXXXXX — to be added after the Zenodo upload]`
+- Zenodo DOI: `10.5281/zenodo.24190239` (https://doi.org/10.5281/zenodo.24190239)
 
 After downloading, point the `SRC` / path constants in the scripts to this file.
 
