@@ -1,22 +1,31 @@
 cff-version: 1.2.0
-message: "If you use this code or data, please cite the following paper."
-title: "Multi-Source Normalized Remote-Sensing Indicators and the Analytic Hierarchy Process for Evaluating Vehicle Trafficability and Bearing Capacity on the Western Coastal Plain of Taiwan, China"
-type: software
+message: "If you use this repository or associated dataset, please cite the following work."
+title: "A Multi-Source Remote-Sensing and AHP Framework for Relative Vehicle Trafficability Assessment in the Western Coastal Plain of Taiwan, China"
 authors:
   - family-names: Wu
     given-names: Shanrui
+    affiliation: PLA Army Engineering University
   - family-names: Cheng
     given-names: Zijian
+    affiliation: PLA Army Engineering University
   - family-names: Rao
     given-names: Jianrong
+    affiliation: PLA Army Engineering University
+  - family-names: Zhou
+    given-names: Zizheng
+    affiliation: PLA Army Engineering University
   - family-names: Wang
     given-names: Yi
+    affiliation: PLA Army Engineering University
   - family-names: Shi
     given-names: Yue
+    affiliation: PLA Army Engineering University
   - family-names: Wang
     given-names: Daqing
+    affiliation: PLA Army Engineering University
 version: 1.0.0
 date-released: 2026-11-13
-license: MIT
-repository-code: "https://github.com/zishu206/taiwan-trafficability-bci"
-# doi: "10.XXXX/XXXX — add after journal publication"
+repository-code: https://github.com/zishu206/taiwan-trafficability-bci
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.24190238
