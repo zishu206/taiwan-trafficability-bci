@@ -1,37 +1,47 @@
-# Google Earth Engine (GEE) scripts
+# Google Earth Engine Processing Notes
 
-The indicator workflow was authored in the **GEE Code Editor**
-(https://code.earthengine.google.com). The files in this folder document the full
-cloud-side extraction and the local tile merge.
+This folder contains the Google Earth Engine scripts used to prepare candidate indicators for the relative vehicle trafficability assessment.
 
-## Files
+## Current Terminology
 
-- **`gee_indicators_13.js`** — the current script matching the published paper. It
-  builds the thirteen indicators in four north–south tiles to avoid memory limits,
-  applies 2nd–98th percentile directional normalization (larger values = higher
-  bearing capacity), and runs `Export.image.toDrive` at 30 m in EPSG:4326. Band
-  order: NLI, BD, CLAY, SAL, RELIEF, SLOPE, CURV, DISTW, WDENS, SAR, LST, NDVI,
-  LULC. The NLI section documents how to rasterize the engineering-geological
-  lithology score (strata obtainable from the public Geology Cloud); the constant
-  0.5 line is a runnable placeholder to be replaced by that rasterization.
-- **`merge_tiles.py`** — merges the four exported part GeoTIFFs into one
-  13-channel raster. Set `INPUT_DIR` to the local folder holding the part files.
-- **`archive_15indicators.js`** — the earlier fifteen-indicator version, retained
-  for provenance. The final framework removed the NDWI and TWI indicators and
-  replaced the NLI placeholder with the real lithology score; all other eleven
-  indicators, the data sources, the normalization, and the tiling are unchanged.
+- RTI: Relative Trafficability Index, the current continuous relative-screening output.
+- NRI: Normalized Rainfall Index, the current name for the fifth-band indicator.
+- BCI in legacy scripts corresponds to RTI.
+- NAI in the fifth band position corresponds to NRI.
+- NVFI denotes the NDVI-based vegetation layer, not a separately calculated FVC product.
+- These aliases do not represent different variables.
 
-The scripts document: Landsat 8/9 `C02/T1_L2` cloud masking and median
-compositing; LST calibration; SRTM-based relief and slope (`ee.Terrain.slope`);
-Sentinel-1 SAR backscatter; OpenLandMap bulk density (scale factor 10) and clay;
-Dynamic World land-cover remapping; water-density and distance-to-water;
-2nd–98th percentile directional normalization; band stacking; and
-`Export.image.toDrive` at 30 m in EPSG:4326.
+## Current 13-Band Order
 
-## Wet-season (multi-temporal) re-run
+1. NLI
+2. NBD
+3. NCLAY
+4. NSAL
+5. NRI
+6. NSI
+7. NCUR
+8. NDW
+9. NWDI
+10. NSAR
+11. NLST
+12. NVFI
+13. NLULC
 
-`gee_wet_season_template.py` is a Python template for recomputing the **dynamic**
-indicators over a wet-season/typhoon window while keeping the static layers and
-the AHP weights unchanged. Authenticate with `earthengine authenticate`, complete
-the indicator functions, and compare the resulting BCI against the dry-season run
-using the same 0.606 / 0.672 breakpoints.
+## Processing Notes
+
+- Dynamic composites cover 2022–2023.
+- Landsat 8/9 and Sentinel-1 inputs are summarized as full-period median composites.
+- Dynamic World is represented by its modal land-cover label.
+- The implemented SAL input is √(R × NIR).
+- Indicator normalization uses directional 2nd–98th percentile normalization.
+- The main-map filter is 5 × 5.
+- The 7 × 7 filter is used only for sensitivity comparison.
+- The final class breaks are 0.606 and 0.672.
+
+## Scope
+
+RTI is a unitless relative screening score. It is not a measured cone index, bearing capacity, soil strength, vehicle-specific pass/fail result, or vehicle-performance prediction.
+
+The complete 13-channel GeoTIFF is archived at Zenodo:
+
+https://doi.org/10.5281/zenodo.24190238
